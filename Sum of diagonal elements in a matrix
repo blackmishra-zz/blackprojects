@@ -1,0 +1,32 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the diagonalDifference function below.
+def diagonalDifference(a):
+    i=0    
+    n=len(a)
+    x = sum(a[i][i] for i in range(n))
+    y = sum(a[i][n-i-1] for i in range(n))   
+    return abs(x-y)    
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    a = []
+
+    for _ in range(n):
+        a.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
